@@ -6,7 +6,7 @@
 
 ### Live demo
 
-**_[My weather app](https://h-pk-11.github.io/My-Task-List/)_**
+**_[My weather app](https://h-pk-11.github.io/Weather-App/)_**
 
 ---
 
