@@ -1,6 +1,12 @@
-### My task list
+### My Weather App
 
-`For the requirement of the project, I only make UI for desktop.`
+`Enter a location to check current weather`
+
+---
+
+### Live demo
+
+**_[My weather app](https://h-pk-11.github.io/My-Task-List/)_**
 
 ---
 
@@ -16,23 +22,17 @@
 ### Preview
 
 <div align="center">
-<img src="./src/assets/images/preview/preview_1.JPG" width="80%">
+<img src="./src/assets/images/images/preview_1.JPG" width="80%">
 </div>
 
 <br>
 
 <div align="center">
-<img src="./src/assets/images/preview/preview_2.JPG" width="80%">
+<img src="./src/assets/images/images/preview_2.JPG" width="80%">
 </div>
 
 ---
 
-### Live demo
+### Background source
 
-**_[My Todos list](https://h-pk-11.github.io/My-Task-List/)_**
-
----
-
-### Reference
-
-Design inspired by **_[any.do](https://www.any.do/en)_**
+**_[svg_background](https://www.template.net/editable/backgrounds-illustrator/)_**

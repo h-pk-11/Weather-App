@@ -1,0 +1,361 @@
+#weatherApp {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url(../images/svgs/Sea-of-Clouds.svg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  color: var(--text-color-1);
+  transition: background-image linear 500ms;
+  -webkit-transition: background-image linear 500ms;
+}
+
+.dark-mode #weatherApp {
+  background-image: url(../images/svgs/Sea-of-Clouds-dark.svg);
+  background-position: center;
+}
+
+/* weatherInput */
+.weatherInput {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.input-search-btn {
+  height: 40px;
+  width: 50px;
+  color: var(--button-bg-color);
+  background-color: var(--button-bg-color);
+  outline: none;
+  border: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform linear 100ms;
+}
+
+.input-search-btn:active i {
+  transform-origin: center;
+  transform: scale(1.1);
+}
+
+#input-search {
+  height: 40px;
+  width: 210px;
+  outline: none;
+  border: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: var(--button-bg-color);
+  font-size: 1.6rem;
+  color: var(--button-bg-text-color);
+  line-height: 40px;
+  font-weight: 600;
+  caret-color: var(--theme-color);
+  padding: 0 20px 0 0;
+}
+
+#input-search::placeholder {
+  color: var(--search-input-placeholder-text-color);
+  font-weight: 600;
+}
+
+#input-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.weatherInput__loading {
+  position: absolute;
+  right: -32px;
+  display: grid;
+  place-content: center;
+}
+
+.weatherInput__loading-icon {
+  display: inline-flex;
+}
+
+.weatherInput__loading-icon svg {
+  visibility: hidden;
+  transition: visibility linear 200ms;
+}
+
+.weatherInput__loading-icon.weatherInput__loading-icon--active svg {
+  visibility: visible;
+}
+
+.weatherInput__error {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 40px;
+}
+
+.weatherInput__error-message {
+  color: var(--error-message-text-color);
+  font-size: 1.4rem;
+  line-height: 1.15;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* weatherOutput */
+.weatherOutput {
+  position: absolute;
+  bottom: 30%;
+  right: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--style-font-family);
+}
+
+.weatherOutputWrapper {
+  padding: 16px;
+}
+
+.location {
+  color: var(--text-color-1);
+  font-size: 1.2rem;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.location span {
+  display: flex;
+  align-items: baseline;
+  justify-self: flex-start;
+}
+
+.location__name,
+.location__country {
+  color: var(--text-color-1);
+  font-size: 2.8rem;
+  line-height: 1.15;
+}
+
+.date {
+  color: var(--text-color-1);
+  font-size: 1.4rem;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.weatherInfo__digitalData {
+  display: flex;
+  align-items: flex-start;
+}
+
+.weatherInfo__temperature {
+  min-width: 244px;
+  display: flex;
+  align-items: flex-start;
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid var(--text-color-1);
+  color: var(--celsius-color);
+  transition: color linear 300ms;
+}
+
+.weatherInfo__temperature-number {
+  margin-left: 6px;
+  font-size: 12rem;
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.weatherInfo__temperature.weatherInfo__temperature--fahrenheit {
+  color: var(--fahrenheit-color);
+}
+
+.weatherInfo__unit {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 400;
+}
+
+.weatherInfo__otherData {
+  min-width: 170px;
+}
+
+.weatherInfo__otherData > div {
+  font-size: 1.4rem;
+  line-height: 1.15;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.precipitation,
+.humidity,
+.wind {
+  font-weight: 700;
+}
+
+.weatherInfo__weatherCondition {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+/* weatherInfo__unitSwitch */
+.weatherInfo__unitSwitch {
+  display: inline-block;
+}
+.weatherInfo__unitSwitch .button {
+  position: relative;
+  width: 54px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.button,
+.button .layer {
+  border-radius: 100px;
+}
+
+.weatherInfo__unitSwitch .checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#button-1 .knobs {
+  transition: 0.3s ease all;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.knobs:before,
+#button-1 .layer {
+  transition: 0.3s ease all;
+}
+
+#button-1 .knobs:before {
+  content: "°C";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 4px 2px;
+  background-color: var(--button-bg-knobs-color);
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-1 .checkbox:checked + .knobs:before {
+  content: "°F";
+  left: 31px;
+  background-color: var(--button-bg-knobs-checked-color);
+}
+
+#button-1 .checkbox:checked ~ .layer {
+  background-color: var(--switch-button-bg-checked-color);
+}
+
+#button-1 .knobs,
+#button-1 .knobs:before,
+#button-1 .layer {
+  transition: all ease 300ms;
+}
+
+.layer {
+  width: 100%;
+  background-color: var(--switch-button-bg-color);
+  transition: all ease 300ms;
+  z-index: 1;
+}
+
+/* changeMode */
+.changeMode {
+  position: absolute;
+  top: 50px;
+  right: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.checkboxWrapper .checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkboxWrapper .checkbox ~ .lightModeIcon,
+.checkboxWrapper .checkbox ~ .darkModeIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  transform-origin: center;
+  transition:
+    visibility linear 400ms,
+    transform linear 400ms;
+}
+
+.checkboxWrapper .checkbox ~ .lightModeIcon {
+  transform: scale(1) rotate(0deg);
+  visibility: visible;
+}
+
+.checkboxWrapper .checkbox ~ .darkModeIcon {
+  transform: scale(0) rotate(180deg);
+  visibility: hidden;
+}
+
+.checkboxWrapper .checkbox:checked ~ .lightModeIcon {
+  transform: scale(0) rotate(180deg);
+  visibility: hidden;
+}
+
+.checkboxWrapper .checkbox:checked ~ .darkModeIcon {
+  transform: scale(1) rotate(0deg);
+  visibility: visible;
+}

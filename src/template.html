@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/svgs/weather_logo.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Merriweather/Merriweather-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Merriweather/Merriweather-Light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Merriweather/Merriweather-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <div id="weatherApp">
+      <div class="changeMode">
+        <div class="checkboxWrapper">
+          <input type="checkbox" class="checkbox" />
+
+          <i class="lightModeIcon">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="sun">
+                <g id="sun_2">
+                  <path
+                    id="Vector"
+                    d="M25.0031 37.5064C31.9073 37.5064 37.5043 31.9094 37.5043 25.0051C37.5043 18.1008 31.9073 12.5037 25.0031 12.5037C18.0989 12.5037 12.502 18.1008 12.502 25.0051C12.502 31.9094 18.0989 37.5064 25.0031 37.5064Z"
+                    fill="#E88B00"
+                  />
+                  <path
+                    id="Vector_2"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.37607 24.9988C9.37607 23.2714 7.97837 21.8737 6.25098 21.8737H3.1251C1.3977 21.8737 0 23.2714 0 24.9988C0 26.7262 1.3977 28.124 3.1251 28.124H6.2502C7.97837 28.124 9.37607 26.7262 9.37607 24.9988Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_3"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.53467 36.0478L7.3221 38.2612C6.10097 39.4815 6.10097 41.4597 7.3221 42.6801C8.54245 43.9005 10.5206 43.9005 11.7418 42.6801L13.9551 40.4675C15.1755 39.2471 15.1755 37.2681 13.9551 36.0478C12.7332 34.8266 10.7558 34.8266 9.53467 36.0478Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_4"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M25.0031 40.6261C23.2757 40.6261 21.878 42.0238 21.878 43.7513V46.8772C21.878 48.6046 23.2757 50.0023 25.0031 50.0023C26.7305 50.0023 28.1282 48.6046 28.1282 46.8772L28.1251 43.7513C28.1282 42.0238 26.7274 40.6261 25.0031 40.6261Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_5"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M40.4684 36.0509C39.2504 34.8274 37.2723 34.8274 36.0519 36.0478C34.8316 37.2681 34.8316 39.2471 36.0519 40.4675L38.2621 42.677C39.4825 43.9036 41.4607 43.8974 42.681 42.677C43.9014 41.4566 43.9045 39.4815 42.681 38.258L40.4684 36.0509Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_6"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M46.8811 21.8737L43.749 21.8799C42.0279 21.8737 40.6302 23.2714 40.6302 24.9988C40.6239 26.7262 42.0279 28.124 43.749 28.124H46.8749C48.6085 28.1302 50 26.7262 50 24.9988C50.0031 23.2745 48.6085 21.8737 46.8811 21.8737Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_7"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M40.4684 13.953L42.6779 11.7427C43.9076 10.5192 43.8982 8.54415 42.6779 7.323C41.4599 6.09872 39.4825 6.09872 38.2621 7.31987L36.0519 9.5356C34.8316 10.7505 34.8316 12.7279 36.0519 13.9491C37.266 15.1773 39.2504 15.171 40.4684 13.953Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_8"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M25.0031 9.37153C26.7274 9.38403 28.1282 7.97381 28.1282 6.25263V3.12749C28.1282 1.39381 26.7305 0.00234375 25.0031 0.00234375C23.2757 -0.00390654 21.878 1.39381 21.878 3.12202L21.8843 6.25341C21.878 7.97381 23.2757 9.37153 25.0031 9.37153Z"
+                    fill="#E8C300"
+                  />
+                  <path
+                    id="Vector_9"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.54092 13.9499C10.7558 15.1702 12.7277 15.1702 13.952 13.9467C15.1817 12.735 15.1755 10.7513 13.9582 9.53325L11.748 7.32378C10.5214 6.09638 8.54948 6.10575 7.32835 7.32378C6.09785 8.5418 6.09785 10.5192 7.31898 11.7404L9.54092 13.9499Z"
+                    fill="#E8C300"
+                  />
+                </g>
+              </g>
+            </svg>
+          </i>
+
+          <i class="darkModeIcon">
+            <svg
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="moon">
+                <g id="moon_2">
+                  <path
+                    id="Vector"
+                    d="M25 45.8333C13.4942 45.8333 4.16667 36.5058 4.16667 25C4.16667 24.036 5.61146 23.8767 6.11 24.7017C8.48146 28.6263 12.7885 31.25 17.7083 31.25C25.1873 31.25 31.25 25.1873 31.25 17.7083C31.25 12.7884 28.6262 8.48136 24.7017 6.10992C23.8767 5.6114 24.036 4.16667 25 4.16667C36.5059 4.16667 45.8333 13.4941 45.8333 25C45.8333 36.5058 36.5059 45.8333 25 45.8333Z"
+                    fill="#98C9E1"
+                  />
+                </g>
+              </g>
+            </svg>
+          </i>
+        </div>
+      </div>
+      <div class="weatherInput">
+        <button class="input-search-btn">
+          <i>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="loop" clip-path="url(#clip0_1_2)">
+                <path
+                  id="Vector"
+                  d="M19 19L14.65 14.65"
+                  stroke="#76453B"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="Vector_2"
+                  d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
+                  fill="#7FC7D9"
+                  stroke="#76453B"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_2">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </i>
+        </button>
+        <input
+          type="search"
+          id="input-search"
+          name="input-search"
+          placeholder="Enter a location..."
+        />
+
+        <div class="weatherInput__loading">
+          <i class="weatherInput__loading-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="loading">
+                <g id="loading_2" transform-origin="center">
+                  <path
+                    id="Vector"
+                    opacity="0.25"
+                    d="M10 3.70967C9.45161 3.70967 9.03226 3.29032 9.03226 2.74193V0.967739C9.03226 0.419352 9.45161 -2.68988e-06 10 -2.68988e-06C10.5484 -2.68988e-06 10.9677 0.419352 10.9677 0.967739V2.74193C10.9677 3.25806 10.5484 3.70967 10 3.70967Z"
+                    fill="#B9FFB9"
+                    fill-opacity="0.4"
+                  />
+                  <path
+                    id="Vector_2"
+                    d="M10 20C9.45161 20 9.03226 19.5806 9.03226 19.0323V17.2581C9.03226 16.7097 9.45161 16.2903 10 16.2903C10.5484 16.2903 10.9677 16.7097 10.9677 17.2581V19.0323C10.9677 19.5806 10.5484 20 10 20Z"
+                    fill="#2EFF2E"
+                  />
+                  <path
+                    id="Vector_3"
+                    d="M6.35484 4.67742C6.03226 4.67742 5.70968 4.51613 5.51613 4.19355L4.64516 2.67742C4.3871 2.22581 4.54839 1.6129 5 1.35484C5.45161 1.09677 6.06452 1.25806 6.32258 1.70968L7.19355 3.22581C7.45161 3.67742 7.29032 4.29032 6.83871 4.54839C6.70968 4.6129 6.51613 4.67742 6.35484 4.67742Z"
+                    fill="#D1FFD1"
+                    fill-opacity="0.1"
+                  />
+                  <path
+                    id="Vector_4"
+                    d="M14.5161 18.7742C14.1935 18.7742 13.871 18.6129 13.6774 18.2903L12.8065 16.7742C12.5484 16.3226 12.7097 15.7097 13.1613 15.4516C13.6129 15.1935 14.2258 15.3548 14.4839 15.8065L15.3548 17.3226C15.6129 17.7742 15.4516 18.3871 15 18.6452C14.8387 18.7419 14.6774 18.7742 14.5161 18.7742Z"
+                    fill="#46FF46"
+                  />
+                  <path
+                    id="Vector_5"
+                    d="M3.70968 7.32258C3.54839 7.32258 3.3871 7.29032 3.22581 7.19355L1.70968 6.32258C1.25806 6.06452 1.09677 5.45161 1.35484 5C1.6129 4.54839 2.22581 4.3871 2.67742 4.64516L4.19355 5.51613C4.64516 5.77419 4.80645 6.3871 4.54839 6.83871C4.35484 7.16129 4.03226 7.32258 3.70968 7.32258Z"
+                    fill="#E8FFE8"
+                    fill-opacity="0.02"
+                  />
+                  <path
+                    id="Vector_6"
+                    d="M17.8387 15.4839C17.6774 15.4839 17.5161 15.4516 17.3548 15.3548L15.8065 14.4839C15.3548 14.2258 15.1935 13.6129 15.4516 13.1613C15.7097 12.7097 16.3226 12.5484 16.7742 12.8065L18.2903 13.6774C18.7419 13.9355 18.9032 14.5484 18.6452 15C18.4839 15.3226 18.1613 15.4839 17.8387 15.4839Z"
+                    fill="#5DFF5D"
+                  />
+                  <path
+                    id="Vector_7"
+                    d="M19.0323 10.9677H17.2581C16.7097 10.9677 16.2903 10.5484 16.2903 10C16.2903 9.45161 16.7097 9.03226 17.2581 9.03226H19.0323C19.5806 9.03226 20 9.45161 20 10C20 10.5484 19.5806 10.9677 19.0323 10.9677Z"
+                    fill="#74FF74"
+                  />
+                  <path
+                    id="Vector_8"
+                    d="M2.16129 15.4839C1.83871 15.4839 1.51613 15.3226 1.32258 15C1.06452 14.5484 1.22581 13.9355 1.67742 13.6774L3.19355 12.8065C3.64516 12.5484 4.25806 12.7097 4.51613 13.1613C4.77419 13.6129 4.6129 14.2258 4.16129 14.4839L2.64516 15.3548C2.51613 15.4516 2.35484 15.4839 2.16129 15.4839Z"
+                    fill="#00FF00"
+                  />
+                  <path
+                    id="Vector_9"
+                    d="M16.2903 7.32258C15.9677 7.32258 15.6452 7.16129 15.4516 6.83871C15.1935 6.3871 15.3548 5.77419 15.8065 5.51613L17.3226 4.64516C17.7742 4.3871 18.3871 4.54839 18.6452 5C18.9032 5.45161 18.7419 6.06452 18.2903 6.32258L16.7742 7.19355C16.6129 7.29032 16.4516 7.32258 16.2903 7.32258Z"
+                    fill="#8BFF8B"
+                    fill-opacity="0.8"
+                  />
+                  <path
+                    id="Vector_10"
+                    d="M5.48387 18.7742C5.32258 18.7742 5.16129 18.7419 5 18.6452C4.54839 18.3871 4.3871 17.7742 4.64516 17.3226L5.51613 15.8065C5.77419 15.3548 6.3871 15.1935 6.83871 15.4516C7.29032 15.7097 7.45161 16.3226 7.19355 16.7742L6.32258 18.2903C6.12903 18.6129 5.80645 18.7742 5.48387 18.7742Z"
+                    fill="#17FF17"
+                  />
+                  <path
+                    id="Vector_11"
+                    d="M13.6452 4.67742C13.4839 4.67742 13.3226 4.64516 13.1613 4.54839C12.7097 4.29032 12.5484 3.67742 12.8065 3.22581L13.6774 1.70968C13.9355 1.25806 14.5484 1.09677 15 1.35484C15.4516 1.6129 15.6129 2.22581 15.3548 2.67742L14.4839 4.19355C14.2903 4.48387 13.9677 4.67742 13.6452 4.67742Z"
+                    fill="#A2FFA2"
+                    fill-opacity="0.6"
+                  />
+                  <animateTransform
+                    type="rotate"
+                    attributeName="transform"
+                    calcMode="discrete"
+                    dur="1.5"
+                    values="0;30;60;90;120;150;180;210;240;270;300;330"
+                    repeatCount="indefinite"
+                  ></animateTransform>
+                </g>
+              </g>
+            </svg>
+          </i>
+        </div>
+
+        <div class="weatherInput__error">
+          <span class="weatherInput__error-message"></span>
+        </div>
+      </div>
+      <div class="weatherOutput">
+        <div class="weatherOutputWrapper">
+          <div class="location">
+            <span>
+              <span>
+                <i>Result for:&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+              </span>
+              <span class="location__name">
+                <span class="name">Tokyo</span>
+                <span>,&nbsp</span>
+              </span>
+              <span class="location__country">Japan</span>
+            </span>
+          </div>
+          <div class="date">Wednesday, 01/03/24</div>
+          <div class="weatherInfo">
+            <div class="weatherInfo__digitalData">
+              <div class="weatherInfo__temperature">
+                <div class="weatherInfo__temperature-icon">
+                  <i>
+                    <svg
+                      width="18"
+                      height="40"
+                      viewBox="0 0 18 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="thermometer">
+                        <g id="inside">
+                          <path
+                            id="Vector"
+                            d="M12.3175 4.29469C12.3175 2.4625 10.8323 0.977188 9 0.977188C7.16781 0.977188 5.6825 2.46242 5.6825 4.29469V14.5586H12.3174L12.3175 4.29469Z"
+                            fill="white"
+                          />
+                          <path
+                            id="Vector_2"
+                            d="M12.3175 27.9747V14.5584H5.68258V27.9746C4.05313 29.0524 2.97766 30.9003 2.97766 33.0004C2.97766 36.3265 5.67391 39.0228 9.00008 39.0228C12.3263 39.0228 15.0225 36.3266 15.0225 33.0004C15.0224 30.9005 13.947 29.0525 12.3175 27.9747Z"
+                            fill="#FD1D19"
+                          />
+                        </g>
+                        <g id="outside">
+                          <path
+                            id="Vector_3"
+                            d="M13.2947 27.4739C13.2947 26.6695 13.2947 5.09922 13.2947 4.29477C13.2947 1.92664 11.368 0 9 0C6.63195 0 4.70531 1.92664 4.70531 4.29469C4.70531 5.09977 4.70531 26.6697 4.70531 27.4738C3.00234 28.7967 2.00039 30.8252 2.00039 33.0003C2.00039 36.8599 5.14047 40 9 40C12.8595 40 15.9996 36.8599 15.9996 33.0004C15.9996 30.8253 14.9977 28.7969 13.2947 27.4739ZM6.65969 4.29469C6.65969 3.0043 7.70961 1.95438 9 1.95438C10.2904 1.95438 11.3403 3.0043 11.3403 4.29469V6.79062H9.32508C8.78523 6.79062 8.34789 7.22805 8.34789 7.76781C8.34789 8.30758 8.78531 8.745 9.32508 8.745H11.3403V9.75867H9.32508C8.78523 9.75867 8.34789 10.1961 8.34789 10.7359C8.34789 11.2756 8.78531 11.713 9.32508 11.713H11.3403V13.5812H6.65969V4.29469ZM9 38.0456C6.21797 38.0456 3.95477 35.7824 3.95477 33.0004C3.95477 31.3027 4.80219 29.7284 6.22148 28.7896C6.49508 28.6086 6.65953 28.3027 6.65953 27.9746V15.5356H11.3402V27.9746C11.3402 28.3027 11.5047 28.6086 11.7782 28.7896C13.1976 29.7285 14.0449 31.3027 14.0449 33.0004C14.0452 35.7824 11.782 38.0456 9 38.0456Z"
+                            fill="#464646"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </i>
+                </div>
+                <div class="weatherInfo__temperature-number">20</div>
+                <div class="weatherInfo__unit">
+                  <span>&#176;</span>
+                  <span class="unit">C</span>
+                </div>
+              </div>
+              <div class="weatherInfo__otherData">
+                <div class="weatherInfo__precipitation">
+                  <span>
+                    Precipitation:
+                    <span class="precipitation">0.0</span>
+                    <span>mm</span>
+                  </span>
+                </div>
+                <div class="weatherInfo__humidity">
+                  <span>
+                    Humidity:
+                    <span class="humidity">60</span>
+                    <span>%</span>
+                  </span>
+                </div>
+                <div class="weatherInfo__wind">
+                  <span>
+                    Wind:
+                    <span class="wind">3</span>
+                    <span>m/s</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="weatherInfo__condition">
+              <div class="weatherInfo__weatherCondition">Partly cloudy</div>
+            </div>
+            <div class="weatherInfo__unitSwitch">
+              <div class="button" id="button-1">
+                <input type="checkbox" class="checkbox" />
+                <div class="knobs"></div>
+                <div class="layer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "consistent-return": "off",
+    "no-plusplus": "off",
+    "func-names": ["error", "never"],
+    "no-param-reassign": "off",
+    "camelcase": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": ["error", { "functions": false }],
+    "quotes": [
+      "error",
+      "double",
+      { "avoidEscape": false, "allowTemplateLiterals": false }
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.common.js", "**/*.dev.js", "**/*.prod.js"]}],
+    "no-unused-vars": "warn"
+  }
+}

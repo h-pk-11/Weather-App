@@ -1,0 +1,102 @@
+/* font-face */
+/* Merriweather */
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather/Merriweather-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --default-font-family: "Helvetica Neue", Arial, sans-serif;
+  --style-font-family: "Merriweather", serif;
+  --text-color-1: #030303;
+  --text-color-3: #d8d8d8;
+  --text-color-4: #180d6d;
+  --celsius-color: #180d6d;
+  --fahrenheit-color: #f44336;
+  --theme-color: #0083ff;
+  --button-text-color: #030303;
+  --button-bg-color: #fff;
+  --button-bg-knobs-checked-color: #f44336;
+  --error-message-text-color: #f103039d;
+  --button-bg-knobs-color: #0083ff;
+  --button-border-radius: 8px;
+  --search-input-placeholder-text-color: #e1e1e1;
+  --switch-button-bg-checked-color: #ffb0b0;
+  --switch-button-bg-color: #72b1ec;
+}
+
+.dark-mode {
+  --default-font-family: "Helvetica Neue", Arial, sans-serif;
+  --style-font-family: "Merriweather", serif;
+  --text-color-1: #fff;
+  --text-color-3: #d8d8d8;
+  --text-color-4: #00ffc6;
+  --celsius-color: #00ffc6;
+  --fahrenheit-color: #ffc108;
+  --theme-color: #0071db;
+  --button-bg-text-color: #190996;
+  --button-bg-color: #fff;
+  --button-bg-knobs-checked-color: #ffc108;
+  --error-message-text-color: #f103039d;
+  --button-bg-knobs-color: #056d5691;
+  --button-border-radius: 8px;
+  --search-input-placeholder-text-color: #9b9b9b;
+  --switch-button-bg-checked-color: #ddd6c1;
+  --switch-button-bg-color: #9dfce785;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: var(--default-font-family);
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  margin: 0;
+}
+
+ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: block;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+}
+
+textarea {
+  padding: 0;
+  margin: 0;
+}
